@@ -15,6 +15,8 @@ DATABASES = {
     }
 }
 
+ROOT_URLCONF = "urls"
 USE_TZ = False
+DEBUG = True
 
 INSTALLED_APPS = ("db",)
