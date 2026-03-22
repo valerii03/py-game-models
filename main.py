@@ -1,9 +1,6 @@
 import json
 from pathlib import Path
 
-import django
-from django.core.management import call_command
-
 from db.models import Guild, Player, Race, Skill
 
 
