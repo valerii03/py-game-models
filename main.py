@@ -1,10 +1,16 @@
 import json
 from pathlib import Path
 
+import django
+from django.core.management import call_command
+
 from db.models import Guild, Player, Race, Skill
 
 
 def main() -> None:
+    django.setup()
+    call_command("migrate", run_syncdb=True, verbosity=0)
+
     file_path = Path("players.json")
 
     with open(file_path, "r", encoding="utf-8") as file:
@@ -20,7 +26,6 @@ def main() -> None:
             },
         )
 
-        # Create skills
         for skill_data in race_data.get("skills", []):
             Skill.objects.get_or_create(
                 name=skill_data["name"],
