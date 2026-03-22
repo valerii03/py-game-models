@@ -8,9 +8,6 @@ from db.models import Guild, Player, Race, Skill
 
 
 def main() -> None:
-    django.setup()
-    call_command("migrate", run_syncdb=True, verbosity=0)
-
     file_path = Path("players.json")
 
     with open(file_path, "r", encoding="utf-8") as file:
